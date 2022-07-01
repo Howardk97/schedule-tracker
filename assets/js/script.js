@@ -1,7 +1,7 @@
 // Create a variable to hold the block the time will be displayed in, current time, and save buttons
 var timeBlock = $('#currentDay');
 var todayDate = moment().format("dddd, MMMM Do YYYY");
-var saveButtons = $('.btn')
+var saveButtons = $('.btn');
 
 // Variables that hold input elements
 var savedInput9AM = $('#input-9-am');
@@ -52,6 +52,8 @@ function saveInput() {
     var input4PM = $('input[name="user-input-4-pm"]').val();
     var input5PM = $('input[name="user-input-5-pm"]').val();
 
+    console.log(input9AM);
+
     // store input in local storage
     localStorage.setItem("userInput9AM", input9AM);
     localStorage.setItem("userInput10AM", input10AM);
@@ -67,13 +69,26 @@ function saveInput() {
 // add listener to buttons
 saveButtons.on("click", saveInput);
 
+// Create variables to hold user input
+var userInputText9AM = localStorage.getItem("userInput9AM");
+var userInputText10AM = localStorage.getItem("userInput10AM");
+var userInputText11AM = localStorage.getItem("userInput11AM");
+var userInputText12PM = localStorage.getItem("userInput12PM");
+var userInputText1PM = localStorage.getItem("userInput1PM");
+var userInputText2PM = localStorage.getItem("userInput2PM");
+var userInputText3PM = localStorage.getItem("userInput3PM");
+var userInputText4PM = localStorage.getItem("userInput4PM");
+var userInputText5PM = localStorage.getItem("userInput5PM");
+
 // display user input on page
-savedInput9AM.append(localStorage.getItem("userInput9AM"));
-savedInput10AM.append(localStorage.getItem("userInput10AM"));
-savedInput11AM.append(localStorage.getItem("userInput11AM"));
-savedInput12PM.append(localStorage.getItem("userInput12PM"));
-savedInput1PM.append(localStorage.getItem("userInput1PM"));
-savedInput2PM.append(localStorage.getItem("userInput2PM"));
-savedInput3PM.append(localStorage.getItem("userInput3PM"));
-savedInput4PM.append(localStorage.getItem("userInput4PM"));
-savedInput5PM.append(localStorage.getItem("userInput5PM"));
+savedInput9AM.val(userInputText9AM);
+savedInput10AM.val(userInputText10AM);
+savedInput11AM.val(userInputText11AM);
+savedInput12PM.val(userInputText12PM);
+savedInput1PM.val(userInputText1PM);
+savedInput2PM.val(userInputText2PM);
+savedInput3PM.val(userInputText3PM);
+savedInput4PM.val(userInputText4PM);
+savedInput5PM.val(userInputText5PM);
+
+
